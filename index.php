@@ -5,45 +5,40 @@
  * Date: 15/3/25
  * Time: 下午9:16
  */
+require_once('schedule.php');
 $item=$_POST['action'];
 switch($item){
-    case 'user':operateUser();break;
-    case 'activity':operateActivity();break;
-    case 'schedule':operateSchedule();break;
-    case 'contacts':operateContacts();break;
+    case 'get_user_schedule':get_user_schedule();break;
 }
-function operateUser(){
-    $order=$_POST[''];
-    switch($order){
-        case 'del':break;
-        case 'new':break;
-        case 'upd':break;
-        case 'get':break;
-    }
+function get_user_schedule(){
+    $userid=$_POST['userid'];
+    $contactid=$_POST['contactid'];
+    echo "Hello word";
 }
-function operateActivity(){
-    $order=$_POST[''];
-    switch($order){
-        case 'del':break;
-        case 'new':break;
-        case 'reset':break;
-    }
+function match(){
+    $userid=$_POST['userid'];
+    $user_id_arry=$_POST['user_id_array'];
 }
-function operateSchedule(){
-    $order=$_POST[''];
-    switch($order){
-        case 'get':break;
-        case 'del':break;
-        case 'setacti':break;
-    }
+function add_contact(){
+    $user_id=$_POST['user_id'];
+    $content=$_POST['content'];
+    $phone_number=$_POST['phone_number'];
 }
-function operateContacts(){
-     $order=$_POST[''];
-    switch($order){
-        case 'get':break;
-        case 'del':break;
-        case 'add':break;
-    }
+function get_contacts(){
+    $user_id=$_POST['user_id'];
+
 }
+function upload_contact(){
+    $name=$_POST['name'];
+    $phone=$_POST['phone'];
+}
+function upload_myinfo(){
+    $user_id=$_POST['user_id'];
+    $username=$_POST['username'];
+}
+function init(){
+    $user_id=$_POST['user_id'];
+}
+
 ?>
 
