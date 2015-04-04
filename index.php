@@ -7,9 +7,6 @@
  */
 //require_once('schedule.php');
 
-print_r($_GET);
-echo 'begins';
-
 $item=$_POST['action'];
 switch($item){
     case 'get_user_schedule':get_user_schedule();break;
@@ -33,12 +30,19 @@ function add_contact(){
 function get_contacts(){
     $user_id=$_POST['user_id'];
     $data=array(
-        'id'=>'001',
-        'name'=>'gaoyang',
-        'img'=>'localhost/sharetime/img/1.jpg',
-        'phone'=>'13579'
+        'status'=>1,
+        'contacts'=>array(
+            array('id'=>'001',
+                'name'=>'gaoyang',
+                'img'=>'localhost/sharetime/img/1.jpg',
+                'phone'=>'13579'),
+            array('id'=>'002',
+                'name'=>'zfy',
+                'img'=>'localhost/sharetime/img/2.jpg',
+                'phone'=>'24680'),
+        ),
     );
-    return json_encode($data);
+    print_r(json_encode($data));
 }
 function upload_contact(){
     $name=$_POST['name'];
