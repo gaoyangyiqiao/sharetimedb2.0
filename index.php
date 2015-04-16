@@ -11,22 +11,82 @@ $item=$_POST['action'];
 switch($item){
     case 'get_user_schedule':get_user_schedule();break;
     case 'get_contacts':get_contacts(); break;
+    case 'get_contact_info':get_contact_info();break;
+}
+
+function get_contact_info(){
+    $data=array(
+        'status'=>1,
+        'info'=>array(
+            'id'=>'002',
+            'name'=>'zfy',
+            'img'=>'localhost/sharetime/img/2.jpg',
+            'phone'=>'24680'
+        ),
+    );
+    print_r(json_encode($data));
 }
 
 function get_user_schedule(){
     $userid=$_POST['userid'];
     $contactid=$_POST['contactid'];
-
+    $data=array(
+        'status'=>1,
+        "activity"=>array(
+            array(
+                "content"=>"cook",
+                'id'=>'0001',
+                'contacts_id'=>'1,2,3,4'),
+            array(
+                "content"=>"play",
+                'id'=>'0002',
+                'contacts_id'=>'1,2,3,4'),
+            array(
+                "content"=>"cook",
+                'id'=>'0003',
+                'contacts_id'=>'1,2,3,4'),
+        ),
+        'size'=>30,
+        'begin_time'=>'2014-3-4 8:00',
+    );
+    print_r(json_encode($data));
 }
+
 function match(){
     $userid=$_POST['userid'];
     $user_id_arry=$_POST['user_id_array'];
+    $data=array(
+        'status'=>1,
+        "activity"=>array(
+            array(
+                "content"=>"cook",
+                'id'=>'0001',
+                'contacts_id'=>'1,2,3,4'),
+            array(
+                "content"=>"play",
+                'id'=>'0002',
+                'contacts_id'=>'1,2,3,4'),
+            array(
+                "content"=>"cook",
+                'id'=>'0003',
+                'contacts_id'=>'1,2,3,4'),
+        ),
+        'size'=>30,
+        'begin_time'=>'2014-3-4 8:00',
+    );
+    print_r(json_encode($data));
 }
+
 function add_contact(){
     $user_id=$_POST['user_id'];
     $content=$_POST['content'];
     $phone_number=$_POST['phone_number'];
+    $data=array(
+        'status'=>1,
+
+    );
 }
+
 function get_contacts(){
     $user_id=$_POST['user_id'];
     $data=array(
@@ -44,15 +104,18 @@ function get_contacts(){
     );
     print_r(json_encode($data));
 }
+
 function upload_contact(){
     $name=$_POST['name'];
     $phone=$_POST['phone'];
 
 }
+
 function upload_myinfo(){
     $user_id=$_POST['user_id'];
     $username=$_POST['username'];
 }
+
 function init(){
     $user_id=$_POST['user_id'];
 }
