@@ -18,7 +18,7 @@
 
 	function updateActivity($activity){
 		global $table;
-		$sql='update from {$table} set title={$activity["title"]},content={$activity["content"]} where id={$activity["id"]}'
+		$sql='update from {$table} set title={$activity["title"]},content={$activity["content"]} where id={$activity["id"]}';
 		$query=mysql_query($sql);
 	}
 
@@ -32,7 +32,7 @@
 
 	function getActivity($id){
 		global $table;
-		$sql="select * from {$table} where id={$id}"
+		$sql="select * from {$table} where id={$id}";
 		$query=mysql_query($sql);
 		return $query;
 	}

@@ -18,7 +18,7 @@
 
 	function updateInvitation($invitation){
 		global $table;
-		$sql='update from {$table} set is_passed={$invitation["is_passed"]} where id={$invitation["id"]}'
+		$sql='update from {$table} set is_passed={$invitation["is_passed"]} where id={$invitation["id"]}';
 		$query=mysql_query($sql);
 	}
 
@@ -32,7 +32,7 @@
 
 	function getInvitation($id){
 		global $table;
-		$sql="select * from {$table} where id={$id}"
+		$sql="select * from {$table} where id={$id}";
 		$query=mysql_query($sql);
 		return $query;
 	}

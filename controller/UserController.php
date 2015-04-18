@@ -18,7 +18,7 @@
 
 	function updateUser($userInfo){
 		global $table;
-		$sql='update from {$table} set name={$userInfo["name"]},photopath={$userInfo["photopath"]},phone={$userInfo["phone"]},password={$userInfo["password"]} where id={$userInfo["id"]}'
+		$sql='update from {$table} set name={$userInfo["name"]},photopath={$userInfo["photopath"]},phone={$userInfo["phone"]},password={$userInfo["password"]} where id={$userInfo["id"]}';
 		$query=mysql_query($sql);
 	}
 
@@ -32,7 +32,7 @@
 
 	function getUser($id){
 		global $table;
-		$sql="select * from {$table} where id={$id}"
+		$sql="select * from {$table} where id={$id}";
 		$query=mysql_query($sql);
 		return $query;
 	}

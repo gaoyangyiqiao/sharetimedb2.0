@@ -20,7 +20,7 @@
 
 	function updateAddContact($addInfo){
 		global $table;
-		$sql='update from {$table} set content={$addInfo["content"]} where id={$addInfo["id"]}'
+		$sql='update from {$table} set content={$addInfo["content"]} where id={$addInfo["id"]}';
 		$query=mysql_query($sql);
 	}
 
@@ -34,7 +34,7 @@
 
 	function getAddContact($id){
 		global $table;
-		$sql="select * from {$table} where id={$id}"
+		$sql="select * from {$table} where id={$id}";
 		$query=mysql_query($sql);
 		return $query;
 	}
