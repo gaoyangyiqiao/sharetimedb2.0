@@ -1,0 +1,43 @@
+<?php
+	require('dbconfig.php');
+	include('initdb.php');
+	
+	$table='add_contact';
+
+
+//默认不通过
+	 function addAddContact($addInfo){
+	 	global $table;
+	 	$sql="insert into {$table} values({$addInfo['id']},{$addInfo['sender_id']},{$addInfo['receiver_id'],{$addInfo['content']},0)";
+		$query=mysql_query($sql);
+	}
+
+	function deleteAddContact($id){
+		global $table;
+		$sql="delete from {$table} where id={$id}";
+		$query=mysql_query($sql);
+	}
+
+	function updateAddContact($addInfo){
+		global $table;
+		$sql='update from {$table} set content={$addInfo["content"]} where id={$addInfo["id"]}'
+		$query=mysql_query($sql);
+	}
+
+	function searchAddContact($keyword){
+		global $table;
+		$sql="select * from {$table} where content like %{$keyword}%";
+		$query=mysql_query($sql);
+		$result=mysql_fetch_array($query);
+		return $result;
+	}
+
+	function getAddContact($id){
+		global $table;
+		$sql="select * from {$table} where id={$id}"
+		$query=mysql_query($sql);
+		return $query;
+	}
+
+
+?>
