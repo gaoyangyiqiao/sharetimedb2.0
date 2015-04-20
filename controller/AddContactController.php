@@ -8,7 +8,7 @@
 //默认不通过
 	 function addAddContact($addInfo){
 	 	global $table;
-	 	$sql="insert into {$table} values({$addInfo['id']},{$addInfo['sender_id']},{$addInfo['receiver_id'],{$addInfo['content']},0)";
+	 	$sql="insert into {$table} values({$addInfo['id']},{$addInfo['sender_id']},{$addInfo['receiver_id'],'{$addInfo["content"]}',0)";
 		$query=mysql_query($sql);
 		//返回该id
 		return mysql_insert_id();
@@ -22,7 +22,7 @@
 
 	function updateAddContact($addInfo){
 		global $table;
-		$sql='update {$table} set content={$addInfo["content"]} where id={$addInfo["id"]}';
+		$sql="update {$table} set content={$addInfo["content"]} where id={$addInfo["id"]}";
 		$query=mysql_query($sql);
 	}
 
