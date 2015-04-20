@@ -12,6 +12,11 @@ switch($item){
     case 'get_user_schedule':get_user_schedule();break;
     case 'get_contacts':get_contacts(); break;
     case 'get_contact_info':get_contact_info();break;
+    case 'match':match();break;
+    case 'add_contact':add_contact();break;
+    case 'upload_contact':upload_contact();break;
+    case 'upload_myInfo':upload_myInfo();break;
+    case 'init':init();break;
 }
 
 function get_contact_info(){
@@ -22,8 +27,8 @@ function get_contact_info(){
             'name'=>'zfy',
             'img'=>'localhost/sharetime/img/2.jpg',
             'phone'=>'24680'
-        ),
-    );
+            ),
+        );
     print_r(json_encode($data));
 }
 
@@ -33,22 +38,22 @@ function get_user_schedule(){
     $data=array(
         'status'=>1,
         "activity"=>array(
-            array(
-                "content"=>"cook",
-                'id'=>'0001',
-                'contacts_id'=>'1,2,3,4'),
-            array(
-                "content"=>"play",
-                'id'=>'0002',
-                'contacts_id'=>'1,2,3,4'),
-            array(
-                "content"=>"cook",
-                'id'=>'0003',
-                'contacts_id'=>'1,2,3,4'),
-        ),
+            array(            
+            "content"=>"cook",
+            'id'=>'0001',
+            'contacts_id'=>'1,2,3,4'),
+            array(            
+            "content"=>"play",
+            'id'=>'0002',
+            'contacts_id'=>'1,2,3,4'),
+            array(            
+            "content"=>"cook",
+            'id'=>'0003',
+            'contacts_id'=>'1,2,3,4'),
+            ),
         'size'=>30,
         'begin_time'=>'2014-3-4 8:00',
-    );
+        );
     print_r(json_encode($data));
 }
 
@@ -58,22 +63,22 @@ function match(){
     $data=array(
         'status'=>1,
         "activity"=>array(
-            array(
-                "content"=>"cook",
-                'id'=>'0001',
-                'contacts_id'=>'1,2,3,4'),
-            array(
-                "content"=>"play",
-                'id'=>'0002',
-                'contacts_id'=>'1,2,3,4'),
-            array(
-                "content"=>"cook",
-                'id'=>'0003',
-                'contacts_id'=>'1,2,3,4'),
-        ),
+            array(            
+            "content"=>"cook",
+            'id'=>'0001',
+            'contacts_id'=>'1,2,3,4'),
+            array(            
+            "content"=>"play",
+            'id'=>'0002',
+            'contacts_id'=>'1,2,3,4'),
+            array(            
+            "content"=>"cook",
+            'id'=>'0003',
+            'contacts_id'=>'1,2,3,4'),
+            ),
         'size'=>30,
         'begin_time'=>'2014-3-4 8:00',
-    );
+        );
     print_r(json_encode($data));
 }
 
@@ -83,8 +88,8 @@ function add_contact(){
     $phone_number=$_POST['phone_number'];
     $data=array(
         'status'=>1,
-
-    );
+        
+        );
 }
 
 function get_contacts(){
@@ -100,7 +105,7 @@ function get_contacts(){
                 'name'=>'zfy',
                 'img'=>'localhost/sharetime/img/2.jpg',
                 'phone'=>'24680'),
-        ),
+            ),        
     );
     print_r(json_encode($data));
 }
@@ -111,7 +116,7 @@ function upload_contact(){
 
 }
 
-function upload_myinfo(){
+function upload_myInfo(){
     $user_id=$_POST['user_id'];
     $username=$_POST['username'];
 }

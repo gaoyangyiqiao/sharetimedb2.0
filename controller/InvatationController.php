@@ -8,6 +8,8 @@
 	 	global $table;
 	 	$sql="insert into {$table} values({$invitation['id']},{$invitation['sender_id']},{$invitation['receiver_id']},{$invitation['activity_id']},0)";
 		$query=mysql_query($sql);
+				//返回该id
+		return mysql_insert_id();
 	}
 
 	function deleteInvitation($id){
@@ -18,7 +20,7 @@
 
 	function updateInvitation($invitation){
 		global $table;
-		$sql='update from {$table} set is_passed={$invitation["is_passed"]} where id={$invitation["id"]}';
+		$sql='update {$table} set is_passed={$invitation["is_passed"]} where id={$invitation["id"]}';
 		$query=mysql_query($sql);
 	}
 

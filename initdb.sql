@@ -25,8 +25,12 @@ CREATE TABLE `activity` (
 
 DROP TABLE IF EXISTS `userRelation`;
 CREATE TABLE `userRelation` (
+  `id` SMALLINT(6) NOT NULL AUTO_INCREMENT,
   `user1_id` SMALLINT(6) NOT NULL ,
-  `user2_id` SMALLINT(6) NOT NULL
+  `user2_id` SMALLINT(6) NOT NULL,
+  `right` SMALLINT(1) NOT NULL,
+  `tip` varchar(15) DEFAULT NULL,
+    PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 

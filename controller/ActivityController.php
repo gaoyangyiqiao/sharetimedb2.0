@@ -8,6 +8,8 @@
 	 	global $table;
 	 	$sql="insert into {$table} values({$activity['id']},{$activity['title']},{$activity['content']})";
 		$query=mysql_query($sql);
+		//返回该id
+		return mysql_insert_id();
 	}
 
 	function deleteActivity($id){
@@ -18,7 +20,7 @@
 
 	function updateActivity($activity){
 		global $table;
-		$sql='update from {$table} set title={$activity["title"]},content={$activity["content"]} where id={$activity["id"]}';
+		$sql='update {$table} set title={$activity["title"]},content={$activity["content"]} where id={$activity["id"]}';
 		$query=mysql_query($sql);
 	}
 
