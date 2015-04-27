@@ -28,15 +28,20 @@
 		global $table;
 		$sql="select * from {$table} where title like %{$keyword}%";
 		$query=mysql_query($sql);
-		$result=mysql_fetch_array($query);
-		return $result;
+		$activies=array();
+		$i=0;
+		while($result=mysql_fetch_array($query)){
+			$activies[$i]=$result;
+		}
+		return $activies;
 	}
 
 	function getActivity($id){
 		global $table;
 		$sql="select * from {$table} where id={$id}";
 		$query=mysql_query($sql);
-		return $query;
+		$result=mysql_fetch_array($query);
+		return $result;
 	}
 
 

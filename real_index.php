@@ -22,14 +22,17 @@ switch($item){
 function get_contact_info(){
     $user_id=$_POST['user_id'];
     $contact_id=$_POST['contact_id'];
-  
+    require_once('businesslogic/getContactInfo.php');
+    $contact=getContactInfo();
     $data=array(
         'status'=>1,
         'info'=>array(
-            'id'=>'002',
-            'name'=>'zfy',
-            'img'=>'localhost/sharetime/img/2.jpg',
-            'phone'=>'24680'
+            'id'=>$contact_id,
+            'name'=>$contact['name'],
+            'img'=>$contact['photopath'],
+            'phone'=>$contact['phone'],
+            'tip'=>$contact['tip'],
+            'right'=>$contact['right']
             ),
         );
     print_r(json_encode($data));

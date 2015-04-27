@@ -27,5 +27,18 @@
 		global $table;
 	}
 
+	function getRelationInfo($user1_id,$user2_id){
+		global $table;
+		$sql="select * from {$table} where user1_id={$user1_id} and user2_id={$user2_id}";
+		$query=mysql_query($sql);
+		$i=0;
+		$result=array();
+		while($rs=mysql_fetch_array($query)){
+			$result[$i]=$rs;
+			$i++;
+		}
+		return $result;
+	}
+
 
 ?>

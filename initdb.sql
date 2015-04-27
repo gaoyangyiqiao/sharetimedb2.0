@@ -19,18 +19,26 @@ CREATE TABLE `activity` (
   `id` smallint(6) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(50) DEFAULT NULL,
   `content` TEXT DEFAULT NULL,
+  `begin_time` DATETIME NOT NULL,
+  `last_time` smallint(3) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 
-DROP TABLE IF EXISTS `userRelation`;
-CREATE TABLE `userRelation` (
+DROP TABLE IF EXISTS `user_relation`;
+CREATE TABLE `user_relation` (
   `id` SMALLINT(6) NOT NULL AUTO_INCREMENT,
   `user1_id` SMALLINT(6) NOT NULL ,
   `user2_id` SMALLINT(6) NOT NULL,
   `right` SMALLINT(1) NOT NULL,
   `tip` varchar(15) DEFAULT NULL,
     PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `user_activity_relation`;
+CREATE TABLE `user_activity_relation` (
+  `user_id` SMALLINT(6) NOT NULL ,
+  `activity_id` SMALLINT(6) NOT NULL
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 

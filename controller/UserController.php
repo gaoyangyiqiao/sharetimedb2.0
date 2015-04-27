@@ -28,7 +28,13 @@
 		global $table;
 		$sql="select * from {$table} where name like %{$keyword}%";
 		$query=mysql_query($sql);
-		$result=mysql_fetch_array($query);
+		$query=mysql_query($sql);
+		$i=0;
+		$result=array();
+		while($rs=mysql_fetch_array($query)){
+			$result[$i]=$rs;
+			$i++;
+		}
 		return $result;
 	}
 
@@ -36,7 +42,13 @@
 		global $table;
 		$sql="select * from {$table} where id={$id}";
 		$query=mysql_query($sql);
-		return $query;
+		$i=0;
+		$result=array();
+		while($rs=mysql_fetch_array($query)){
+			$result[$i]=$rs;
+			$i++;
+		}
+		return $result;
 	}
 
 ?>

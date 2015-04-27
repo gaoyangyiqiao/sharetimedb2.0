@@ -8,7 +8,7 @@
 //默认不通过
 	 function addAddContact($addInfo){
 	 	global $table;
-	 	$sql="insert into {$table} values({$addInfo['id']},{$addInfo['sender_id']},{$addInfo['receiver_id'],'{$addInfo["content"]}',0)";
+	 	$sql='insert into {$table} values({$addInfo['id']},{$addInfo['sender_id']},{$addInfo['receiver_id'],"{$addInfo['content']}",0)';
 		$query=mysql_query($sql);
 		//返回该id
 		return mysql_insert_id();
@@ -30,7 +30,12 @@
 		global $table;
 		$sql="select * from {$table} where content like %{$keyword}%";
 		$query=mysql_query($sql);
-		$result=mysql_fetch_array($query);
+		$i=0;
+		$result=array();
+		while($rs=mysql_fetch_array($query)){
+			$result[$i]=$rs;
+			$i++;
+		}
 		return $result;
 	}
 
@@ -38,7 +43,13 @@
 		global $table;
 		$sql="select * from {$table} where id={$id}";
 		$query=mysql_query($sql);
-		return $query;
+		$i=0;
+		$result=array();
+		while($rs=mysql_fetch_array($query)){
+			$result[$i]=$rs;
+			$i++;
+		}
+		return $result;
 	}
 
 
