@@ -13,14 +13,27 @@ CREATE TABLE `user` (
 
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-
+# private String id;
+# private String theme;
+# private String content;
+# private ContactPO founder;
+# private Date receiveTime;
+# private Date startTime;
+# private Date endTime;
+# private ArrayList<ContactPO> contacts;
+# private int right;//对外可见的权限
+# 默认可见
 DROP TABLE IF EXISTS `activity`;
 CREATE TABLE `activity` (
   `id` smallint(6) unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(50) DEFAULT NULL,
+  `theme` varchar(50) DEFAULT NULL,
   `content` TEXT DEFAULT NULL,
+  `founder_id` SMALLINT(6) NOT NULL,
+  `receive_time` DATETIME NOT NULL,
   `begin_time` DATETIME NOT NULL,
-  `last_time` smallint(3) NOT NULL,
+  `end_time` DATETIME NOT NULL,
+  `contacts_id` TEXT DEFAULT NULL,
+  `right` SMALLINT(1) DEFAULT 1,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
