@@ -39,7 +39,7 @@ function get_contact_info(){
 }
 
 function get_user_schedule(){
-    $userid=$_POST['userid'];
+    $userid=$_POST['user_id'];
     $contactid=$_POST['contactid'];
     require_once('businesslogic/getUserSchedule.php');
     $result=getUserSchedule($contactid);
@@ -47,28 +47,13 @@ function get_user_schedule(){
 }
 
 function match(){
-    $userid=$_POST['userid'];
+    $userid=$_POST['user_id'];
     $user_id_arry=$_POST['user_id_array'];
-    $data=array(
-        'status'=>1,
-        "activity"=>array(
-            array(            
-            "content"=>"cook",
-            'id'=>'0001',
-            'contacts_id'=>'1,2,3,4'),
-            array(            
-            "content"=>"play",
-            'id'=>'0002',
-            'contacts_id'=>'1,2,3,4'),
-            array(            
-            "content"=>"cook",
-            'id'=>'0003',
-            'contacts_id'=>'1,2,3,4'),
-            ),
-        'size'=>30,
-        'begin_time'=>'2014-3-4 8:00:00',
-        );
-    print_r(json_encode($data));
+    $begin_time=$_POST['begin_time'];
+    $end_time=$_POST['end_time'];
+    require_once('businesslogic/match.php');
+    $result=bl\match($userid,$user_id_arry,$begin_time,$end_time);
+    print_r($result);
 }
 
 function add_contact(){
