@@ -23,7 +23,7 @@ function get_contact_info(){
     $user_id=$_POST['user_id'];
     $contact_id=$_POST['contact_id'];
     require_once('businesslogic/getContactInfo.php');
-    $contact=getContactInfo($user_id,$contact_id);
+    $contact=\bl\getContactInfo($user_id,$contact_id);
     $data=array(
         'status'=>1,
         'info'=>array(
@@ -42,7 +42,7 @@ function get_user_schedule(){
     $userid=$_POST['user_id'];
     $contactid=$_POST['contactid'];
     require_once('businesslogic/getUserSchedule.php');
-    $result=getUserSchedule($contactid);
+    $result=\bl\getUserSchedule($contactid);
     print_r($result);
 }
 
@@ -52,7 +52,7 @@ function match(){
     $begin_time=$_POST['begin_time'];
     $end_time=$_POST['end_time'];
     require_once('businesslogic/match.php');
-    $result=bl\match($userid,$user_id_arry,$begin_time,$end_time);
+    $result=\bl\match($userid,$user_id_arry,$begin_time,$end_time);
     print_r($result);
 }
 

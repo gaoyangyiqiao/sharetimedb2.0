@@ -16,7 +16,7 @@
         $activities=array();
 
         foreach($users as $v){
-            $tempActivities=getUserActivitiesInTime($v,$begin_time,$end_time);
+            $tempActivities=\controller\getUserActivitiesInTime($v,$begin_time,$end_time);
             $activities=array_merge($activities,$tempActivities);
         }
         unset($v);

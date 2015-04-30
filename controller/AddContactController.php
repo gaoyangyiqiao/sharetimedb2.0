@@ -1,4 +1,6 @@
 <?php
+namespace controller;
+
 	require('dbconfig.php');
 	include('initdb.php');
 	

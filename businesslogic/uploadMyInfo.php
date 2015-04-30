@@ -1,4 +1,5 @@
 <?php
+namespace bl;
 
 	$root_path=dirname(dirname(__FILE__));
 	require($root_path.'/controller/UserController.php');
@@ -12,7 +13,7 @@
 			'password'=>$password
 			);
 
-		addUser($userInfo);
+        $user_id=\controller\addUser($userInfo);
 
 	}
 

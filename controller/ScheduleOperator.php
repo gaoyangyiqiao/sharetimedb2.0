@@ -1,10 +1,11 @@
 <?php
+    namespace controller;
 	$root_path=dirname(dirname(__FILE__));
 	require('dbconfig.php');
 	include('initdb.php');
 	require($root_path.'/controller/UserController.php');
 	require($root_path.'/controller/ActivityController.php');
-	require('UserActivityRelation.php');
+	require('UserActivityRelationController.php');
 
 	$table_activity="activity";
 	$table_user="user";
