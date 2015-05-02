@@ -9,7 +9,7 @@ namespace controller;
 
 //默认不通过
 	 function addAddContact($addInfo){
-	 	global $table;
+         $table='add_contact';
 	 	$sql="insert into {$table} values({$addInfo[id]},{$addInfo[sender_id]},{$addInfo[receiver_id]},'{$addInfo[content]}',0)";
 		$query=mysql_query($sql);
 		//返回该id
@@ -17,19 +17,19 @@ namespace controller;
 	}
 
 	function deleteAddContact($id){
-		global $table;
+        $table='add_contact';
 		$sql="delete from {$table} where id={$id}";
 		$query=mysql_query($sql);
 	}
 
 	function updateAddContact($addInfo){
-		global $table;
+        $table='add_contact';
 		$sql="update {$table} set content={$addInfo["content"]} where id={$addInfo["id"]}";
 		$query=mysql_query($sql);
 	}
 
 	function searchAddContact($keyword){
-		global $table;
+        $table='add_contact';
 		$sql="select * from {$table} where content like %{$keyword}%";
 		$query=mysql_query($sql);
 		$i=0;
@@ -42,7 +42,7 @@ namespace controller;
 	}
 
 	function getAddContact($id){
-		global $table;
+        $table='add_contact';
 		$sql="select * from {$table} where id={$id}";
 		$query=mysql_query($sql);
 		$i=0;

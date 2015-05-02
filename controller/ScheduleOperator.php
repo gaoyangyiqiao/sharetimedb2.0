@@ -13,9 +13,12 @@
 
 //默认从今天开始的前后两天
 	function getUserActivities($user_id){
-		global $table_user;
-		global $table_activity;
-		global $table_relation;
+//		global $table_user;
+//		global $table_activity;
+//		global $table_relation;
+        $table_activity="activity";
+        $table_user="user";
+        $table_relation="user_activity_relation";
 
 		//获得今天前后两天的activity，首先获得用户所有activity，再将符合条件的activity添加到结果中
 		$sql="select * from {$table_activity} where (datediff(day,begin_time,getdate())<=2 or datediff(day,getdate(),begin_time)<=2) and id in (select activity_id from {$table_relation} where user_id={$user_id})";

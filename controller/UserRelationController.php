@@ -7,7 +7,7 @@ namespace controller;
 	$table='user_relation';
 
 	 function addRelation($relation){
-	 	global $table;
+         $table='user_relation';
 	 	$sql="insert into {$table} values({$relation['id']},{$relation['user1_id']},{$relation['user2_id']},{$relation['right']},'{$relation['tip']}')";
 		$query=mysql_query($sql);
 		//返回该id
@@ -15,22 +15,22 @@ namespace controller;
 	}
 
 	function deleteRelation($relation){
-		global $table;
+        $table='user_relation';
 		$sql="delete from {$table} where user1_id={$relation['user1_id']},user2_id={$relation['user2_id']}";
 		$query=mysql_query($sql);
 	}
 
 	function updateRelation($relation){
-		global $table;
+        $table='user_relation';
 		$sql="update {$table} set right={$relation['right']},tip='{$relation['tip']}'";
 	}
 
 	function searchRelation($keyword){
-		global $table;
+        $table='user_relation';
 	}
 
 	function getRelationInfo($user1_id,$user2_id){
-		global $table;
+        $table='user_relation';
 		$sql="select * from {$table} where user1_id={$user1_id} and user2_id={$user2_id}";
 		$query=mysql_query($sql);
 		$i=0;

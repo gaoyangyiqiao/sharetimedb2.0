@@ -17,7 +17,18 @@ switch($item){
     case 'upload_contact':upload_contact();break;
     case 'upload_myInfo':upload_myInfo();break;
     case 'init':init();break;
+    case 'search_user':search_user();break;
 }
+
+function search_user(){
+    $user_id=$_POST['user_id'];
+    $keywords=$_POST['keywords'];
+    require_once("businesslogic/searchUser.php");
+    $result=\bl\searchUser($keywords);
+    print_r($result);
+}
+
+search_user();
 
 function get_contact_info(){
     $user_id=$_POST['user_id'];

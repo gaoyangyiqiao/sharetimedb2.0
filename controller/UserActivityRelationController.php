@@ -7,7 +7,7 @@ namespace controller;
 	$table='user_activiy_relation';
 
 	function addActivityRelation($relation){
-		global $table;
+        $table='user_activiy_relation';
 	 	$sql="insert into {$table} values({$relation['user_id']},{$relation['activity_id']})";
 		$query=mysql_query($sql);
 		//返回该id
@@ -15,7 +15,7 @@ namespace controller;
 	}
 
 	function deleteActivityRelation($relation){
-		global $table;
+        $table='user_activiy_relation';
 		$sql="delete from {$table} where user_id={$relation['user_id']},activity_id={$relation['activity_id']}";
 		$query=mysql_query($sql);		
 	}
