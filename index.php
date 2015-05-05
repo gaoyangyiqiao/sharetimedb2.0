@@ -51,22 +51,31 @@ function get_user_schedule(){
     $contactid=$_POST['contactid'];
     $data=array(
         'status'=>1,
-        "activity"=>array(
-            array(            
-            "content"=>"cook",
-            'id'=>'0001',
-            'contacts_id'=>'1,2,3,4'),
-            array(            
-            "content"=>"play",
-            'id'=>'0002',
-            'contacts_id'=>'1,2,3,4'),
-            array(            
-            "content"=>"cook",
-            'id'=>'0003',
-            'contacts_id'=>'1,2,3,4'),
+        "user_schedule"=>array(
+            "activity"=>array(
+                array(
+                    "theme"=>"hehe",
+                    "founder_id"=>"2",
+                    "content"=>"cook",
+                    'id'=>'0001',
+                    'contacts_id'=>'1,2,3,4',
+                    "receive_time"=>'2014-1-1 11:22:33',
+                    "start_time"=>'2014-1-1 11:22:33',
+                    "end_time"=>'2014-1-1 13:22:33',
+                    'right'=>1),
+                array(
+                    "theme"=>"haha",
+                    "founder_id"=>"2",
+                    "content"=>"cook",
+                    'id'=>'0002',
+                    'contacts_id'=>'1,2,3,4',
+                    "receive_time"=>'2014-1-1 11:22:33',
+                    "start_time"=>'2014-1-2 11:22:33',
+                    "end_time"=>'2014-1-2 13:22:33',
+                    'right'=>1),
             ),
-        'size'=>30,
-        'begin_time'=>'2014-3-4 8:00',
+            'size'=>30,
+            'begin_time'=>'2014-1-1 8:00:00')
         );
     print_r(json_encode($data));
 }
