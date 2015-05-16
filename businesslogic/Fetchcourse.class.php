@@ -80,9 +80,9 @@ class Fetchcourse{
         $content=str_replace("\n","",$content);
         $content=str_replace("\r","",$content);
         $content=str_replace("\t","",$content);
-        $content=str_replace("\r\n", "",$content);
-         $content=str_replace("<br/>"," ",$content);//去除br换行符
-
+        $content=str_replace("\r\n","",$content);
+         $content=str_replace("<br/>","  ",$content);//去除br换行符,替换为两个空格
+        $content=str_replace("  "," ",$content);
          //清除换行符、空格符、制表符
          // $content = preg_replace("/([\r\n|\n|\t| ]+)/",'',$content);
         //删除cookie文件
@@ -133,7 +133,7 @@ class Fetchcourse{
 }
 
 //    $fetch=new Fetchcourse();
-//    $content=$fetch->getCourses($username,$password);
+//    $content=$fetch->getCourses("131250043","19941026");
 //
 //    for($i=0;$i<sizeof($content);$i++){
 //        print_r($content[$i]);

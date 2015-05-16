@@ -10,23 +10,38 @@ include("Fetchcourse.class.php");
 //$courseTime=array('')
 //week=Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday;class=1-2,3-4,5-6,7-8,1-3,1-4,5-7,5-8,9-10,9-11;
 
+//专门用于输出数组
+function p($array){
+    foreach($array as $v){
+        print_r($v);
+        echo '<br/>';
+    }
+}
+
  function njuTimeTransfer(){
      $fetcher=new \bl\Fetchcourse();
 
-     $courseInfo=$fetcher->getCourses("131250043","19941026");
+     $courseInfo=$fetcher->getCourses("","");
 
      $result=array();
+
     if(is_array($courseInfo)){
         for($i=0;$i<sizeof($courseInfo);$i++){
             $courseInfo[$i]["time_place"]=trim($courseInfo[$i]["time_place"]);
-            echo $courseInfo[$i]["time_place"];
-//            $strarray=explode(" ",$courseInfo[$i]["time_place"]);
+            $strarray=explode(" ",$courseInfo[$i]["time_place"]);
 //            print_r($strarray);
-//            foreach($strarray as $v) {
-//                if ($v == "周一") {
-//
-//                }
-//            }
+            // TODO 没有分析某些特殊的数组
+            if(sizeof($strarray)%4==0){
+                $time=array();
+                //[0]代表周几，[1]代表第几节,[2]代表第几周
+                for($j=0;$j<sizeof($strarray);$j++){
+                    if($j%4==0&&$j!=0){
+                        $result[]=$time;
+                    }
+                        $time[$j%4]=$strarray[$j];
+                }
+                $result[]=$time;
+            }
 
             //课程日期
             if(strpos($courseInfo[$i]["time_place"],"周一")>=0){
@@ -94,16 +109,15 @@ include("Fetchcourse.class.php");
             if(strpos($courseInfo[$i]["time_place"],"9-11")>=0){
 
             }
-
-
-
-            echo "<br/>";
         }
+        p($result);
     }else{
         return "error in njuTimeTransfer";
     }
 }
 
+
 njuTimeTransfer();
+
 
 ?>
