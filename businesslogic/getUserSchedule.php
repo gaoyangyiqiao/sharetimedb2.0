@@ -20,4 +20,15 @@
         return json_encode($data);
 	}
 
+    function getClassTable($courses){
+        $classTable=array();
+        //判断今天是否为周一
+        if(is_array($courses)){
+            foreach($courses as $v){
+
+            }
+        }
+        //判断今天是否是单双周
+    }
+
 ?>

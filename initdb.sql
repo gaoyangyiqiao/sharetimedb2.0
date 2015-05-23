@@ -73,4 +73,15 @@ CREATE TABLE `invitation` (
   `is_passed` INT DEFAULT 0
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
+DROP TABLE IF EXISTS `classtable`;
+CREATE TABLE `classtable`(
+  `id` SMALLINT(6)  NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `name` VARCHAR(30) DEFAULT '上课',
+  `place` VARCHAR(15) DEFAULT '学校',
+  `section` VARCHAR(5) NOT NULL ,
+  `day_of_week` VARCHAR(15) NOT NULL ,
+  `weeks` VARCHAR(15) NOT NULL,
+  `course_id` VARCHAR(15) NOT NULL
+)ENGINE =MyISAM DEFAULT CHARSET=utf8;
+
 
