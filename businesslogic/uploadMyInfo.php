@@ -14,6 +14,7 @@ namespace bl;
 			);
 
         $user_id=\controller\addUser($userInfo);
+        return $user_id;
 
 	}
 
