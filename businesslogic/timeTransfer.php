@@ -164,6 +164,7 @@ function courseTimeToArray($courseinfo){
             $result[$k][0]=weekToTime($result[$k][0]);
             $result[$k][1]=classToTime($result[$k][1]);
             $result[$k][2]=dateToTime($result[$k][2]);
+            $result[$k]=courseTimeToArray($result[$k]);
         }
         p($result);
         return $result;
@@ -174,10 +175,10 @@ function courseTimeToArray($courseinfo){
 }
 
 
-//njuTimeTransfer();
-$begin_time=date("Y-m-d",strtotime("2015-3-2"));
-$end_time=date("Y-m-d",strtotime("2015-7-5"));
-$i=2;
-$it=2-1+7;
-print(date("Y-m-d",strtotime($begin_time.'5 day')));
+njuTimeTransfer("");
+//$begin_time=date("Y-m-d",strtotime("2015-3-2"));
+//$end_time=date("Y-m-d",strtotime("2015-7-5"));
+//$i=2;
+//$it=2-1+7;
+//print(date("Y-m-d",strtotime($begin_time.'5 day')));
 ?>
