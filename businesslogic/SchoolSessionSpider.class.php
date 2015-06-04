@@ -24,7 +24,7 @@
 //                if (empty($val)) {
 //                    continue;
 //                }
-                if(strpos($val,"～")!=false){
+                if(strpos($val,"～")!=false&&strpos($val,"学期")){
                     $arr[] = $val;
                 }
 //                $arr[] = $val;
@@ -34,10 +34,10 @@
 
 
         function getSessionTime(){
-            $url = "http://jw.nju.edu.cn/allContentDetail.aspx?MenuType=PX-XZZQ-XLML&id=20150515-14261959~f24fa986";
+            $url = "http://jw.nju.edu.cn/allContentDetail.aspx?MenuType=PX-XZZQ-XLML&id=20130929-08591878%7ec9dbb50c";
             $contents = file_get_contents($url);
             $contents=str_replace("<br>","",$contents);
-            $preg="/&nbsp;&nbsp;&nbsp;(.*?)&nbsp;&nbsp;&nbsp;&nbsp;/is";
+            $preg="/<span style=\"white-space:nowrap;\">(.*?)<\/span>/is";
 
             preg_match_all($preg, $contents, $arr);
             $arr[1]=$this->arrayFilter($arr[1]);
@@ -55,7 +55,7 @@
     }
 
     $spider=new Spider();
-    $spider->getSessionTime();
+    print_r($spider->getSessionTime());
 
 
 

@@ -23,6 +23,11 @@ function addActivity($theme,$content,$founder_id,$receive_time,$begin_time,$end_
         'contacts_id'=>$contacts_id,
         'right'=>$right
     );
+    $activityId=\controller\addActivity($activity);
+    $data=array(
+        'status'=>1,
+        'activity_id'=>$activityId
+    );
 
-    return \controller\addActivity($activity);
+    return json_encode($data);
 }

@@ -41,6 +41,22 @@ namespace controller;
 		}
 		return $result;
 	}
+    //通过用户的id获得用户的好友
+    //TODO 此时的用户关系为单向，即一个用户添加另一个用户后另一个用户通讯录中并没有前一个用户
+    function getRelations($user_id){
+        $table='user_relation';
+        $sql="select user2_id from {$table} where user1_id={$user_id}";
+        $query=mysql_query($sql);
+        $i=0;
+        $result=array();
+        while($rs=mysql_fetch_row($query)){
+            $result[$i]=$rs;
+            $i++;
+        }
+        return $result;
+    }
+
+//    getRelations(1);
 
 
 ?>

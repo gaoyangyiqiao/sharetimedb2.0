@@ -8,16 +8,21 @@
     namespace bl;
     $root_path=dirname(dirname(__FILE__));
     require($root_path.'/controller/UserController.php');
-    function register($phone_number){
+    function register($phone_number,$name,$student_id,$student_password){
         $userInfo=array(
             'id'=>0,
             'phone'=>$phone_number,
-            'name'=>'0',
+            'name'=>$name,
             'photopath'=>'0',
             'password'=>'0'
         );
         $user_id=\controller\addUser($userInfo);
-        return $user_id;
+
+        $data=array(
+            'status'=>1,
+            'user_id'=>$user_id
+        );
+        return json_encode($data);
     }
 
 ?>

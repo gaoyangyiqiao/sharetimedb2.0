@@ -74,7 +74,7 @@ class Fetchcourse{
         $content = $this->get_content($url2, $cookie);
         //转码
          mb_convert_encoding($content, "UTF-8", "auto");
-         print_r($content);
+//         print_r($content);
          
         //去除换行符
         $content=str_replace("\n","",$content);
@@ -131,7 +131,7 @@ class Fetchcourse{
         return $courses;
     }
 }
-
+//
 //    $fetch=new Fetchcourse();
 //    $content=$fetch->getCourses("131250043","19941026");
 //

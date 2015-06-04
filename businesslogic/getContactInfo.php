@@ -14,8 +14,20 @@
 		while($row=mysql_fetch_array(\controller\getRelationInfo($user_id,$contact_id))){
 			$contact['tip']=$row['tip'];
 			$contact['right']=$row['right'];
-		}	
+		}
 
-		return $contact;
+        $data=array(
+            'status'=>1,
+            'info'=>array(
+                'id'=>$contact_id,
+                'name'=>$contact['name'],
+                'img'=>$contact['photopath'],
+                'phone'=>$contact['phone'],
+                'tip'=>$contact['tip'],
+                'right'=>$contact['right']
+            ),
+        );
+
+		return json_encode($data);
 	}
 ?>

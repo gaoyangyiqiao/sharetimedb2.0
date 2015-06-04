@@ -6,3 +6,7 @@
  * Time: 下午4:04
  */
 //用于方圆测试服务器
+namespace zf;
+function a(){
+    print 1234567;
+}

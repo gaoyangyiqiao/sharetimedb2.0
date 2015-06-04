@@ -52,4 +52,16 @@
 		return $result;
 	}
 
+    function getUserByPhone($phone){
+        $table='user';
+        $sql="select * from {$table} where phone={$phone}";
+        $query=mysql_query($sql);
+        $result=array();
+        while($rs=mysql_fetch_array($query)){
+            $result[]=$rs;
+        }
+        return $result;
+    }
+
+//    print_r(getUserByPhone("2345"));
 ?>
