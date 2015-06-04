@@ -104,9 +104,35 @@ function dateToTime($date){
     }
 }
 
- function njuTimeTransfer(){
-     $fetcher=new \bl\Fetchcourse();
+//将课程周时间转换为具体的年月日
+function courseTimeToArray($courseinfo){
+    $begin_time=date("Y-m-d",strtotime("2015-3-2"));
+    $end_time=date("Y-m-d",strtotime("2015-7-5"));
+    $allweeks=18;
+    $dates=array();
+    //如果是双周
+    if($courseinfo[2]==1){
+        for($i=2;$i<18;$i+=2){
+            $dates[]=date("Y-m-d",strtotime($begin_time.''.($courseinfo[0]-1+($i-1)*7).' day'));
+        }
+    }else if($courseinfo[2]==0){
+        for($i=1;$i<18;$i+=2){
+            $dates[]=date("Y-m-d",strtotime($begin_time.''.($courseinfo[0]-1+($i-1)*7).' day'));
+        }
+    }else{
+        $begin_end=explode("-",$courseinfo[2]);
+        for($i=$begin_end[0];$i<$begin_end[1];$i++){
+            $dates[]=date("Y-m-d",strtotime($begin_time.''.($courseinfo[0]-1+($i-1)*7).' day'));
+        }
+    }
+    //将课程的周数转换为具体的日期
+    $courseinfo[2]=$dates;
+    return $courseinfo;
+}
 
+ function njuTimeTransfer($courseInfo){
+     //TODO 下面两句话需要删除
+     $fetcher=new \bl\Fetchcourse();
      $courseInfo=$fetcher->getCourses("131250043","19941026");
      $result=array();
 
@@ -139,14 +165,19 @@ function dateToTime($date){
             $result[$k][1]=classToTime($result[$k][1]);
             $result[$k][2]=dateToTime($result[$k][2]);
         }
-//      p($result);
+        p($result);
         return $result;
     }else{
         return "error in njuTimeTransfer";
     }
+
 }
 
 
-njuTimeTransfer();
-
+//njuTimeTransfer();
+$begin_time=date("Y-m-d",strtotime("2015-3-2"));
+$end_time=date("Y-m-d",strtotime("2015-7-5"));
+$i=2;
+$it=2-1+7;
+print(date("Y-m-d",strtotime($begin_time.'5 day')));
 ?>
