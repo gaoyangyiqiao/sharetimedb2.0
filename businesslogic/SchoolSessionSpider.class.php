@@ -54,8 +54,8 @@
 
     }
 
-    $spider=new Spider();
-    print_r($spider->getSessionTime());
+//    $spider=new Spider();
+//    print_r($spider->getSessionTime());
 
 
 

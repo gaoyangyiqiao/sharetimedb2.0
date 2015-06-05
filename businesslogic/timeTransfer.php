@@ -4,6 +4,7 @@
  * User: gaoyang
  * Date: 15/5/12
  * Time: 上午11:32
+ * 用于转换教务网的时间并将课程打包为activity
  */
 namespace bl;
 include("Fetchcourse.class.php");
@@ -163,12 +164,30 @@ function courseTimeToArray($courseinfo){
             $result[$k][2]=dateToTime($result[$k][2]);
             $result[$k]=courseTimeToArray($result[$k]);
         }
-        p($result);
+//        p($result);
         return $result;
     }else{
         return "error in njuTimeTransfer";
     }
 
 }
+
+
+function classTableToActivities($courses){
+    $activities=array();
+    $course=array();
+    foreach($courses as $v){
+        $course['name']=$v[4];
+        $course['place']=$v[3];
+        $time=explode("-",$v[1]);
+        foreach($v[2] as $day){
+            $course["begin_time"]=$day.' '.$time[0];
+            $course["end_time"]=$day.' '.$time[1];
+            $activities[]=$course;
+        }
+    }
+    return $activities;
+}
+
 
 ?>
