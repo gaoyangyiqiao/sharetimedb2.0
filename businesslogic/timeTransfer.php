@@ -19,46 +19,46 @@ function p($array){
 }
 
 function classToTime($class){
-    if(strpos($class,"1-2")>=0){
+    if(strpos($class,"1-2")!=false){
         return "08:00:00-09:50:00";
     }
-    else if(strpos($class,"1-3")>=0){
+    else if(strpos($class,"1-3")!=false){
         return "08:00:00-11:00:00";
     }
-    else if(strpos($class,"1-4")>=0){
+    else if(strpos($class,"1-4")!=false){
         return "08:00:00-12:00:00";
     }
-    else if(strpos($class,"2-3")>=0){
+    else if(strpos($class,"2-3")!=false){
         return "09:00:00-10:50:00";
     }
-    else if(strpos($class,"2-4")>=0){
+    else if(strpos($class,"2-4")!=false){
         return "09:00:00-12:00:00";
     }
-    else if(strpos($class,"3-4")>=0){
+    else if(strpos($class,"3-4")!=false){
         return "10:10:00-12:00:00";
     }
-    else if(strpos($class,"5-6")>=0){
+    else if(strpos($class,"5-6")!=false){
         return "14:00:00-15:50:00";
     }
-    else if(strpos($class,"5-7")>=0){
+    else if(strpos($class,"5-7")!=false){
         return "14:00:00-17:00:00";
     }
-    else if(strpos($class,"5-8")>=0){
+    else if(strpos($class,"5-8")!=false){
         return "14:00:00-18:00:00";
     }
-    else if(strpos($class,"6-7")>=0){
+    else if(strpos($class,"6-7")!=false){
         return "15:00:00-17:00:00";
     }
-    else if(strpos($class,"6-8")>=0){
+    else if(strpos($class,"6-8")!=false){
         return "15:00:00-18:00:00";
     }
-    else if(strpos($class,"7-8")>=0){
+    else if(strpos($class,"7-8")!=false){
         return "16:10:00-18:00:00";
     }
-    else if(strpos($class,"9-10")>=0){
+    else if(strpos($class,"9-10")!=false){
         return "18:30:00-20:20:00";
     }
-    else if(strpos($class,"9-11")>=0){
+    else if(strpos($class,"9-11")!=false){
         return "18:30:00-21:30:00";
     }
 }
@@ -111,12 +111,12 @@ function courseTimeToArray($courseinfo){
     $allweeks=18;
     $dates=array();
     //如果是双周
-    if($courseinfo[2]==1){
-        for($i=2;$i<18;$i+=2){
+    if($courseinfo[2]=="1"){
+        for($i=2;$i<$allweeks;$i+=2){
             $dates[]=date("Y-m-d",strtotime($begin_time.''.($courseinfo[0]-1+($i-1)*7).' day'));
         }
-    }else if($courseinfo[2]==0){
-        for($i=1;$i<18;$i+=2){
+    }else if($courseinfo[2]=="0"){
+        for($i=1;$i<$allweeks;$i+=2){
             $dates[]=date("Y-m-d",strtotime($begin_time.''.($courseinfo[0]-1+($i-1)*7).' day'));
         }
     }else{
@@ -131,9 +131,6 @@ function courseTimeToArray($courseinfo){
 }
 
  function njuTimeTransfer($courseInfo){
-     //TODO 下面两句话需要删除
-     $fetcher=new \bl\Fetchcourse();
-     $courseInfo=$fetcher->getCourses("131250043","19941026");
      $result=array();
 
     if(is_array($courseInfo)){
@@ -174,11 +171,4 @@ function courseTimeToArray($courseinfo){
 
 }
 
-
-njuTimeTransfer("");
-//$begin_time=date("Y-m-d",strtotime("2015-3-2"));
-//$end_time=date("Y-m-d",strtotime("2015-7-5"));
-//$i=2;
-//$it=2-1+7;
-//print(date("Y-m-d",strtotime($begin_time.'5 day')));
 ?>
