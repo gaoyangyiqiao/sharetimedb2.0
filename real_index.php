@@ -21,6 +21,15 @@ switch($item){
     case 'search_user':search_user();break;
     case 'get_phone_users':get_phone_users();break;
     case 'add_activity':add_activity();break;
+    case 'get_class_table':get_class_table();break;
+}
+
+function get_class_table(){
+    $student_id=$_POST['student_id'];
+    $student_password=$_POST['student_password'];
+    require_once("businesslogic/getClassTable.php");
+    $result=\bl\getClassTable($student_id,$student_password);
+    print_r($result);
 }
 
 function add_activity(){
@@ -124,6 +133,7 @@ function upload_myInfo(){
 function init(){
     $user_id=$_POST['user_id'];
 }
+
 
 ?>
 
