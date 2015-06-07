@@ -36,7 +36,7 @@ function add_activity(){
     $activity=$_POST['activity'];
     $theme=$_POST['theme'];
     $content=$_POST['content'];
-    $founder_id=$_POST['founder_id'];
+    $founder_id=$_POST['user_id'];
     $receive_time=$_POST['receive_time'];
     $begin_time=$_POST['begin_time'];
     $end_time=$_POST['end_time'];
@@ -134,6 +134,10 @@ function init(){
     $user_id=$_POST['user_id'];
 }
 
+
+//require_once("businesslogic/addActivity.php");
+//$result=\bl\addActivity("play","play",1,"","2015-6-7 15:00:00","2015-6-7 18:00:00","",1);
+//print_r($result);
 
 ?>
 

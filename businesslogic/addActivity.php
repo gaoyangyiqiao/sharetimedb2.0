@@ -10,6 +10,8 @@ namespace bl;
 
 $root_path=dirname(dirname(__FILE__));
 require($root_path.'/controller/ActivityController.php');
+require($root_path.'/controller/UserActivityRelationController.php');
+
 function addActivity($theme,$content,$founder_id,$receive_time,$begin_time,$end_time,$contacts_id,$right){
 
     $activity=array(
@@ -28,6 +30,13 @@ function addActivity($theme,$content,$founder_id,$receive_time,$begin_time,$end_
         'status'=>1,
         'activity_id'=>$activityId
     );
+
+    $relation=array(
+        'user_id'=>$founder_id,
+        'activity_id'=>$activityId
+    );
+
+    \controller\addActivityRelation($relation);
 
     return json_encode($data);
 }
