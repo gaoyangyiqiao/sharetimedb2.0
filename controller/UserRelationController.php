@@ -47,16 +47,14 @@ namespace controller;
         $table='user_relation';
         $sql="select user2_id from {$table} where user1_id={$user_id}";
         $query=mysql_query($sql);
-        $i=0;
         $result=array();
         while($rs=mysql_fetch_row($query)){
-            $result[$i]=$rs;
-            $i++;
+            $result[]=$rs;
         }
         return $result;
     }
 
-//    getRelations(1);
+//    print_r(getRelationInfo(1,3));
 
 
 ?>

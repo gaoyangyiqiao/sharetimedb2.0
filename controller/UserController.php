@@ -62,6 +62,6 @@
         }
         return $result;
     }
-
+//print_r(getUser(1));
 //    print_r(getUserByPhone("2345"));
 ?>

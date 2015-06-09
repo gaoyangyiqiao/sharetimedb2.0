@@ -14,7 +14,7 @@ function getContacts($user_id){
     $ids=\controller\getRelations($user_id);
     $contacts=array();
     foreach($ids as $v){
-        $contacts[]=\controller\getUser($v[0]);
+        $contacts[]=\controller\getUser($v[0])[0];
     }
 
     $data=array(

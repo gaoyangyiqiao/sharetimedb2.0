@@ -12,14 +12,13 @@
 
         $users=explode(',',$contacts_id);
         $users[]=$user_id;
-
         $activities=array();
-
         foreach($users as $v){
+
             $tempActivities=\controller\getUserActivitiesInTime($v,$begin_time,$end_time);
             $activities=array_merge($activities,$tempActivities);
         }
-        unset($v);
+
         //将activity转换为schedule
         $data=array(
             'status'=>1,

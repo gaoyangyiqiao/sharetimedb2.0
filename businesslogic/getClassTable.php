@@ -15,7 +15,6 @@ function getClassTable($student_id,$student_password){
         'status'=>1,
         'classes'=>$classes
     );
-    print_r($classes);
     return json_encode($data);
 }
 
