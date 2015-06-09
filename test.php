@@ -100,3 +100,6 @@ function uploadmyInfo(){
 function init(){
     $user_id=$_POST['user_id'];
 }
+
+
+\t\getuserschedule(1,1);

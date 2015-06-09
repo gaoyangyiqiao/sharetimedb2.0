@@ -57,7 +57,7 @@ function get_phone_users(){
 }
 
 
-function searchUser(){
+function search_user(){
     $user_id=$_POST['user_id'];
     $keywords=$_POST['keywords'];
     require_once('businesslogic/searchUser.php');
@@ -87,7 +87,7 @@ function get_contact_info(){
 //TODO 未处理课程
 function get_user_schedule(){
     $userid=$_POST['user_id'];
-    $contactid=$_POST['contactid'];
+    $contactid=$_POST['contact_id'];
     require_once('businesslogic/getUserSchedule.php');
     $result=\bl\getUserSchedule($contactid);
     print_r($result);
